@@ -16,6 +16,7 @@ asci_mixed_data <- prep_asci(image_file = "Training/TrainingData/asci_mixed.pdf"
 
 #Create test data:
 test_data <- prep_asci(image_file = "Testing/TestingData/asci_messy.pdf", fromfile = TRUE, type = "scan")$strips
+test_data <- array_reshape(test_data, dim = c(100, 46, 320, 3))
 
 #Import the corresponding csv file for asci_mixed.pdf:
 asci_mixed_labels <- read.csv("Training/TrainingLabels/asci_mixed_labels.csv")
@@ -53,6 +54,8 @@ asci_extract_training_labels <- prep_labels(label_data = four_page_labels, surve
 # Create Training Data -------------------------------------------
 
 #Form training data:
+asci_mixed_data <- array_reshape(asci_mixed_data, dim = c())
+asci_data <- array_reshape(asci_mixed_data, dim = c())
 training_data <- abind(asci_mixed_data, asci_data, along = 1)
 
 #Form training labels:

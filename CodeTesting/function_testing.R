@@ -30,3 +30,7 @@ test_list <- list(tnsr = test_tnsr, strips = padded_test_strips)
 test_data1 <- test_list$tnsr                                                            #Large array.
 test_data2 <- test_list$strips                                                          #Large cimg.
 test_data3 <- test_list                                                                 #Large list.
+
+
+test_strip_tnsr <- as.array(test_list$strips)
+test_strip_tnsr <- array_reshape(test_strip_tnsr, dim = c(100, 46, 320, 3))
