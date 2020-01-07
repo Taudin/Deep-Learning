@@ -1,7 +1,10 @@
+# Pre-processing ----------------------------------------------------------
+
 #Load necessary packages:
 library(imager)
 library(magick)
 library(keras)
+install_keras(method = "virtualenv", conda = "auto", version = "default", tensorflow = "gpu")
 library(tidyr)
 library(pdftools)
 library(abind)
@@ -12,10 +15,10 @@ source("Code/strip_functions.R")
 # Only One Survey Type ----------------------------------------------------
 
 #Get strips and tensor objects created from PDFs:
-asci_mixed_data <- prep_asci(image_file = "Training/TrainingData/asci_mixed.pdf", fromfile = TRUE, type = "scan")$strips
+asci_mixed_data <- prep_asci(image_file = "Training/TrainingData/asci_mixed.pdf", fromfile = TRUE, type = "scan")$tnsr
 
 #Create test data:
-test_data <- prep_asci(image_file = "Testing/TestingData/asci_messy.pdf", fromfile = TRUE, type = "scan")$strips
+test_data <- prep_asci(image_file = "Testing/TestingData/asci_messy.pdf", fromfile = TRUE, type = "scan")$tnsr
 
 #Import the corresponding csv file for asci_mixed.pdf:
 asci_mixed_labels <- read.csv("Training/TrainingLabels/asci_mixed_labels.csv")
@@ -62,7 +65,8 @@ training_labels <- abind(asci_mixed_training_labels, asci_extract_training_label
 # Save as R Workspace -----------------------------------------------------
 
 rm(list = ls()[!ls() %in% c("training_data", "training_labels", "test_data", "test_labels")])
-#gc()
-#base::save.image("Code/training_and_test_data.Rdata")
+gc()
+base::save.image("Code/training_and_test_data.Rdata")
+
 
 

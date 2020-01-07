@@ -5,6 +5,12 @@ library(keras)
 install_keras(method = "virtualenv", conda = "auto", version = "default", tensorflow = "gpu")
 library(tidyr)
 
+
+
+
+# Strip Functions ---------------------------------------------------------
+
+
 #############################################################################################################################################
 #                                                                                                                                           #
 #                                                             prep_asci()                                                                   #
@@ -58,10 +64,10 @@ prep_asci <- function(image_file, fromfile = FALSE, type = "scan"){
   y <- dim(padded_strips)[2]
   x <- dim(padded_strips)[1]
   d <- dim(padded_strips)[4]
-  tnsr <- array(NA, dim = c(z, x, y, d))
-
+  tnsr <- array(NA, dim = c(z, y, x, d))
+  
   #Return the tensor object:
-  return(list(tnsr = tnsr, strips = as.array(padded_strips)))
+  return(list(tnsr = tnsr, strips = padded_strips))
 }
 
 
@@ -131,4 +137,6 @@ prep_labels <- function(label_data, survey_name){
   #Return the labels:
   return(labels)
 }
+
+
 
