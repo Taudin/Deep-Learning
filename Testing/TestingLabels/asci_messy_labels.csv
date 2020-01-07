@@ -1,0 +1,6 @@
+survey,file,mark,color,page,q1,q2,q3,q4,q5,q6,q7,q8,q9,q10,q11,q12,q13,q14,q15,q16,q17,q18,q19,q20
+asci,asci_validation.pdf,sloppy,black,1,1,2,3,4,5,4,6,7,2,3,4,6,5,2,2,4,6,5,3,1
+asci,asci_validation.pdf,mixed,blue,2,1,1,2,2,3,3,4,4,5,5,6,6,7,7,6,5,4,4,3,2
+asci,asci_validation.pdf,circle,purple,3,1,1,1,2,2,2,3,3,3,4,4,4,5,5,5,6,6,6,7,7
+asci,asci_validation.pdf,fwdslash,gray,4,1,2,3,4,5,4,4,3,2,1,2,3,4,5,6,7,7,7,6,5
+asci,asci_validation.pdf,sloppy,gray,5,2,4,5,6,7,7,7,6,6,6,5,5,5,4,3,2,3,7,6,4
