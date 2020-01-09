@@ -58,8 +58,12 @@ prep_asci <- function(image_file, fromfile = FALSE, type = "scan"){
   y <- dim(padded_strips)[2]
   x <- dim(padded_strips)[1]
   d <- dim(padded_strips)[4]
-  tnsr <- array(NA, dim = c(z, x, y, d))
-
+  tnsr <- array(NA, dim = c(z, y, x, d))
+  
+  for (i in 1:z){
+    tnsr[i,,,] <- frame(padded_strips, i)
+  }
+  
   #Return the tensor object:
   return(list(tnsr = tnsr, strips = as.array(padded_strips)))
 }

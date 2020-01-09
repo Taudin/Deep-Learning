@@ -35,5 +35,28 @@ test_data3 <- test_list                                                         
 test_strip_tnsr <- as.array(test_list$strips)
 test_strip_tnsr <- array_reshape(test_strip_tnsr, dim = c(100, 46, 320, 3))
 
+for (i in 1:z_test){
+  test_tnsr[i,,,] <- frame(padded_test_strips, i)
+}
 
 
+
+# prep_labels() -----------------------------------------------------------
+
+
+test_data_labels <- read.csv("Testing/TestingLabels/asci_messy_labels.csv")
+
+test_labels <- test_data_labels[test_data_labels$survey == "asci",]
+
+library(tidyr)
+test_labels <- gather(test_labels, question, truth, q1:q20)
+
+test_labels$category <- to_categorical(test_labels$truth, num_classes = 10)
+
+plot(frame(padded_test_strips, 1))
+test_labels$category[1,]
+test_labels$truth[1]
+
+plot(frame(padded_test_strips, 2))
+test_labels$category[1,]
+test_labels$truth[1]
