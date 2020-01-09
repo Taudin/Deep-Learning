@@ -1,6 +1,6 @@
 #Load keras with tensorflow backend with gpu support:
 library(keras)
-install_keras(method = "virtualenv", conda = "auto", version = "default", tensorflow = "gpu")
+install_keras(tensorflow = "1.14.0-gpu")
 
 #Load in the training and test data:
 load("Code/training_and_test_data.Rdata")
@@ -22,7 +22,7 @@ summary(lenet_model)
 #Compilation step:
 lenet_model %>% compile(
   loss = "categorical_crossentropy",
-  optimizer = optimizer_rmsprop(),
+  optimizer = optimizer_rmsprop(lr = 1e-4),
   metrics = c("accuracy")
 )
 
