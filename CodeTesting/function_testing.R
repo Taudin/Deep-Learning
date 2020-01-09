@@ -34,3 +34,6 @@ test_data3 <- test_list                                                         
 
 test_strip_tnsr <- as.array(test_list$strips)
 test_strip_tnsr <- array_reshape(test_strip_tnsr, dim = c(100, 46, 320, 3))
+
+
+

@@ -2,7 +2,7 @@
 library(imager)
 library(magick)
 library(keras)
-install_keras(method = "virtualenv", conda = "auto", version = "default", tensorflow = "gpu")
+install_keras(tensorflow = "1.14.0-gpu")
 library(tidyr)
 
 #############################################################################################################################################

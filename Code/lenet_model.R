@@ -35,5 +35,5 @@ history <- lenet_model %>% fit(
 
 #Generate predictions on new data:
 class_predict <- lenet_model %>% predict_classes(test_data)
-mean(test_labels == class_predict)
+mean(test_labels == as.vector(class_predict))
 table(test_labels, class_predict)
