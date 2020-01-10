@@ -28,7 +28,7 @@ x_test <- test_data
 # Model Definition -------------------------------------------------------
 
 input_img <- layer_input(shape = c(46, 320, 3))
-model <- application_densenet(include_top = TRUE, input_tensor = input_img, dropout_rate = 0.2)
+  model <- application_densenet(include_top = TRUE, input_tensor = input_img, dropout_rate = 0.2)
 
 opt <- optimizer_sgd(lr = 0.1, momentum = 0.9, nesterov = TRUE)
 
